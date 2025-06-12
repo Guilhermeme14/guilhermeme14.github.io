@@ -1,7 +1,7 @@
 from flask import Flask, render_template
 from datetime import datetime
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder=".")
 
 # Coloque aqui a data de início do namoro
 data_namoro = datetime(2017, 3, 23, 19, 30, 0)  # ano, mês, dia, hora, minuto, segundo
