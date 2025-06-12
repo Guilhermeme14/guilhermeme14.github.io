@@ -1,0 +1,154 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: #fff4f8;
+  font-family: 'Raleway', sans-serif;
+  color: #333;
+  overflow-x: hidden;
+}
+
+/* Cartão de amor central */
+.love-card {
+  max-width: 600px;
+  margin: 80px auto;
+  padding: 40px 20px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+  text-align: center;
+  z-index: 10;
+  position: relative;
+}
+
+.love-card h1 {
+  font-family: 'Pacifico', cursive;
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #ff69b4;
+}
+
+.love-card .sub {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.contador h2 {
+  font-size: 1.4rem;
+  color: #d63384;
+  text-shadow: 0 0 6px rgba(255, 105, 180, 0.3);
+}
+
+.contador p {
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+/* Imagem no mobile */
+.foto-mobile {
+  display: none;
+  margin-top: 30px;
+}
+
+.foto-mobile img {
+  width: 80%;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* Corações animados */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.heart {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background: url('https://i.imgur.com/Oj1gnvZ.png') no-repeat center/cover;
+  animation: flutuar 10s linear infinite;
+}
+
+.heart:nth-child(2) { left: 20%; animation-duration: 12s; }
+.heart:nth-child(3) { left: 40%; animation-duration: 14s; }
+.heart:nth-child(4) { left: 60%; animation-duration: 10s; }
+.heart:nth-child(5) { left: 80%; animation-duration: 11s; }
+.heart:nth-child(6) { left: 90%; animation-duration: 13s; }
+
+@keyframes flutuar {
+  0% { top: 100%; transform: scale(0.5) rotate(0deg); opacity: 0; }
+  50% { opacity: 1; }
+  100% { top: -10%; transform: scale(1.2) rotate(360deg); opacity: 0; }
+}
+
+/* Galeria de Polaroids minimalista */
+.polaroid-gallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.polaroid {
+  position: absolute;
+  width: 110px;
+  background-color: #fff;
+  padding: 6px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border-radius: 6px;
+  opacity: 0.9;
+  pointer-events: none;
+  transition: transform 0.3s;
+}
+
+.polaroid:hover {
+  transform: scale(1.05) rotate(0deg);
+  z-index: 3;
+}
+
+.polaroid img {
+  width: 100%;
+  display: block;
+  border-radius: 4px;
+}
+
+.polaroid .caption {
+  font-family: 'Pacifico', cursive;
+  font-size: 12px;
+  text-align: center;
+  margin-top: 4px;
+  color: #444;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .polaroid-gallery {
+    display: none;
+  }
+
+  .love-card {
+    margin: 40px 10px;
+    padding: 30px 15px;
+  }
+
+  .love-card h1 {
+    font-size: 2rem;
+  }
+
+  .contador h2 {
+    font-size: 1.1rem;
+  }
+
+  .foto-mobile {
+    display: block;
+  }
+}
