@@ -71,8 +71,13 @@ body {
   position: absolute;
   width: 20px;
   height: 20px;
-  background: url('https://i.imgur.com/Oj1gnvZ.png') no-repeat center/cover;
   animation: flutuar 10s linear infinite;
+}
+
+.heart::before {
+  content: "❤️";
+  font-size: 20px;
+  display: block;
 }
 
 .heart:nth-child(2) { left: 20%; animation-duration: 12s; }

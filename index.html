@@ -5,70 +5,43 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>✨ Nosso Amor ✨</title>
   <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Raleway:wght@300;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-  <!-- Corações flutuantes -->
   <div class="hearts-container" aria-hidden="true">
     <div class="heart"></div><div class="heart"></div><div class="heart"></div>
     <div class="heart"></div><div class="heart"></div><div class="heart"></div>
   </div>
 
-  <!-- Galeria lateral de fotos -->
   <div class="polaroid-gallery">
     <div class="polaroid" style="top: 10%; left: 5%; transform: rotate(-8deg);">
-      <img src="{{ url_for('static', filename='Snapchat-129289426.jpg') }}" alt="Eu" />
+      <img src="Snapchat-129289426.jpg" alt="Eu" />
       <div class="caption">💫 Eu</div>
     </div>
     <div class="polaroid" style="top: 60%; left: 10%; transform: rotate(6deg);">
-      <img src="{{ url_for('static', filename='IMG_20170919_100047656.jpg') }}" alt="Memória" />
+      <img src="IMG_20170919_100047656.jpg" alt="Memória" />
       <div class="caption">Lembrança 🎞️</div>
     </div>
     <div class="polaroid" style="top: 30%; right: 10%; transform: rotate(5deg);">
-      <img src="{{ url_for('static', filename='IMG-20181202-WA0059.jpg') }}" alt="Sorrisos" />
+      <img src="IMG-20181202-WA0059.jpg" alt="Sorrisos" />
       <div class="caption">Sorrisos 🥰</div>
     </div>
     <div class="polaroid" style="top: 75%; right: 5%; transform: rotate(-5deg);">
-      <img src="{{ url_for('static', filename='IMG-20190309-WA0044.jpg') }}" alt="Sol" />
+      <img src="IMG-20190309-WA0044.jpg" alt="Sol" />
       <div class="caption">Tempo bom ☀️</div>
     </div>
   </div>
 
-  <!-- Conteúdo principal -->
   <main class="love-card">
-    <h1>💖 Maria Julia e Guilherme💖</h1>
-    <p class="sub">Desde <strong>{{ data_namoro.strftime('%d/%m/%Y') }}</strong></p>
+    <h1>💖 Maria Julia e Guilherme 💖</h1>
+    <p class="sub">Desde <strong>23/03/2017</strong></p>
     <div id="contador" class="contador">⏳ Contando nosso amor...</div>
     <div class="foto-mobile">
-      <img src="{{ url_for('static', filename='IMG_20230703_143153246_HDR.jpg') }}" alt="Nós dois">
+      <img src="IMG_20230703_143153246_HDR.jpg" alt="Nós dois">
     </div>
   </main>
 
-  <!-- Script do contador -->
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const segundosTotais = {{ tempo.total_seconds()|int }};
-      const dataInicio = new Date(Date.now() - segundosTotais * 1000);
-
-      function atualizarContador() {
-        const agora = new Date();
-        const diff = agora - dataInicio;
-
-        const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const horas = Math.floor((diff / (1000 * 60 * 60)) % 24);
-        const minutos = Math.floor((diff / (1000 * 60)) % 60);
-        const segundos = Math.floor((diff / 1000) % 60);
-
-        document.getElementById('contador').innerHTML = `
-          <p>Se aturando há:</p>
-          <h2>${dias} dias, ${horas}h ${minutos}min ${segundos}s 💞</h2>
-        `;
-      }
-
-      setInterval(atualizarContador, 1000);
-      atualizarContador();
-    });
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
